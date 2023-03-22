@@ -68,13 +68,13 @@ def main(args):
 
     # Prepare an image   
     images = "test"
-
+    output = "output"
     
     try:
         list_dir = os.listdir(images)
      #   list_dir.sort(key=lambda x: int(x[:-4]))
         imlist = [osp.join(osp.realpath('.'), images, img) for img in list_dir if os.path.splitext(img)[1].lower() =='.jpg'  or os.path.splitext(img)[1].lower() =='.jpeg' or os.path.splitext(img)[1] =='.png']
-        print(imlist)
+        # print(imlist)
     except NotADirectoryError:
         imlist = []
         imlist.append(osp.join(osp.realpath('.'), images))
@@ -197,12 +197,13 @@ def main(args):
                         print (str(i+1) + ': ' + sentence)
                         write(detections[i], orig_img, sampled_caption,sentence, i+1, coco_classes, colors)
                         #list(map(lambda x: write(x, orig_img, captions), detections[i].unsqueeze(0)))
-        
-        cv2.imshow("frame", orig_img)
-        key = cv2.waitKey(0)
 
-        if key & 0xFF == ord('q'): 
-            break
+        cv2.imwrite(f"{output}/{image_filename.split('/')[-1]}", orig_img)
+        # cv2.imshow("frame", orig_img)
+        # key = cv2.waitKey(0)
+
+        # if key & 0xFF == ord('q'):
+        #     break
 
 #    image = Image.open(args.image)   
 #    plt.imshow(np.asarray(image))   
