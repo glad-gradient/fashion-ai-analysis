@@ -199,6 +199,8 @@ def main(args):
                         #list(map(lambda x: write(x, orig_img, captions), detections[i].unsqueeze(0)))
 
         cv2.imwrite(f"{output}/{image_filename.split('/')[-1]}", orig_img)
+
+    print("Finish")
         # cv2.imshow("frame", orig_img)
         # key = cv2.waitKey(0)
 
@@ -207,7 +209,6 @@ def main(args):
 
 #    image = Image.open(args.image)   
 #    plt.imshow(np.asarray(image))
-    print("Finish")
 
     
 if __name__ == '__main__':
