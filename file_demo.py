@@ -206,7 +206,9 @@ def main(args):
         #     break
 
 #    image = Image.open(args.image)   
-#    plt.imshow(np.asarray(image))   
+#    plt.imshow(np.asarray(image))
+    print("Finish")
+
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()  
